@@ -1,0 +1,7 @@
+Flask
+Flask-Login
+Flask-Sqlalchemy
+psycopg2
+gunicorn
+redis
+

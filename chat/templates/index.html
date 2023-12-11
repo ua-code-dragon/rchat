@@ -1,0 +1,86 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+  Chat
+</h1>
+<h2 class="subtitle">
+  Testbed for redis queues
+</h2>
+
+<div class="columns has-text-left">
+    <div class="column">
+        <div class="box">
+            <div class="field">
+                 <div class="control">
+                    <input id="t_chatname" class="input" type="text" placeholder="new chat">
+                 </div>
+            </div>
+            <div class="field has-text-right">
+             <button type="button" class="button is-primary" onclick="do_newchat()">Create chat</button>
+            </div> 
+        </div>
+        <div class="box">
+            <div class="field">
+                <div class="control select is-fullwidth">
+                <select class="is-normal" id="t_chatlist">
+                </select>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="field">
+                <h6 class=" is-6 has-text-primary">User name:</h6>
+                <span class="is-size-7" id="i_username"></span>
+            </div>
+            <div class="field">
+                <h6 class=" is-6 has-text-primary">User email:</h6>
+                <span class="is-size-7" id="i_useremail"></span>
+            </div>
+            <div class="field">
+                <h6 class=" is-6 has-text-primary">Chat name:</h6>
+                <span class="is-size-7" id="i_chatname"></span>
+            </div>
+            <div class="field">
+                <h6 class=" is-6 has-text-primary">Chat id:</h6>
+                <span class="is-size-7" id="i_chatid"></span>
+            </div>
+        </div>
+    </div>
+    <div class="column is-three-quarters" >
+        <div class="box is-fullheight" style="height: 32em; min-height: 32em; max-height: 32em; overflow-y: auto;" id="chatscroll">
+            <div class="is-fullwidth m-1 p-2 tile is-ancestor"><div class="tile is-vertical" id="chatbody">
+            </div></div>
+        </div>
+        <div class="box">
+            <div class="field">
+                 <div class="label">
+                 <div class="control">
+                    <textarea id="t_post" class="textarea is-primary is-small" type="text" placeholder="your post here"></textarea>
+                 </div>
+            </div>
+            <div class="field has-text-right">
+                <div class="file has-name is-pulled-left is-small is-primary">
+                    <label class="file-label">
+                        <input class="file-input" type="file" accept="image/*" name="resume" id="t_image" onChange="do_loadimage()">
+                        <span class="file-cta">
+                            <span class="file-icon">
+                                <i class="fas fa-upload"></i>
+                            </span>
+                            <span class="file-label">
+                                Choose an image…
+                            </span>
+                        </span>
+                        <span class="file-name" id="i_filename">
+                            image...
+                        </span>
+                    </label>
+                </div>    
+                <button type="button" class="button is-primary" onClick="do_post()">Post</button>
+            </div> 
+        </div>
+    </div>
+</div>
+
+{% endblock %}
