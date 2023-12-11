@@ -115,6 +115,7 @@ function do_newchat(){
     var data = {
         name: $("#t_chatname").val()
     };
+    $("#t_chatname").val("");
     $.ajax({
         url: 'chat',
         type: 'POST',
@@ -190,8 +191,11 @@ $(function() {
         setInterval(refresh_posts, 3000);
     },2000);        
     $('#t_chatlist').on('change', function(){
-        current_chat = { id: this.value, name: this.text() };
+        current_chat = { id: $('#t_chatlist').val(), name: $('#t_chatlist option:selected').text() };
         $("#i_chatname").text(current_chat.name);
         $("#i_chatid").text(current_chat.id);
+        $("#chatbody").html("");
+        current_message = 0;
+        refresh_posts();
     });
 });
